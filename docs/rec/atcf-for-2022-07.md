@@ -1,0 +1,851 @@
+
+## 七、八月 CF 丢人做题记录
+
+退役过后水平更加低下了。
+
+本来就很菜，现在估计就一个 pupil 水平。
+
+有时候甚至 C 做不出来 /kx
+
+属于是麻了。
+
+### CF1706C Qpwoeirut And The City
+
+> 给你一个序列 $\{a\}$，$3 \le n \le 1e5$。
+> 
+> 每次操作可以把序列里的一个数加一，代价是一。
+> 
+> 要求最大化序列的 “峰” 的个数，且代价最小。
+> 
+> 一个“峰”定义为满足 $a_i > a_{i + 1}, a_i > a_{i - 1}$ 的 $a_i$。
+> 
+> $a_{0}$ 和 $a_{n + 1}$ 在定义上等于 $+\infty$。
+
+考场犯浑没想到，这是考场思路：
+
+> 发现了峰的个数必然是 $mx = \lfloor \dfrac{n-1}{2}\rfloor$。
+> 
+> 然后就考虑在 $[2, n - 1]$ 里面选，开始想的是直接间隔选 $mx$ 个出来。
+> 
+> 但是发现 $n \equiv 0 (\mod 2)$ 的时候可以在中间跳两格出来选。 $(\*)$
+> 
+> 然后就去考虑贪心或者状态机 DP 了，没有去细想 $(\*)$ 这玩意儿到底是为啥，本质是什么，也没去考虑复杂度的问题，也就没想到正解。
+
+对于这玩意儿仔细考虑一下，先列出几个 corner case；
+
+如果 $n$ 是奇数，肯定没法跳两格，只能从 $2$ 开始间隔选，这个算情况 $1$。
+
+然后考虑偶数，发现如果不跳两格，必然是从 $2$ 开始间隔拿到 $n - 2$，这算情况 $2.1$，或者从 $3$ 开始拿到 $n - 1$，这算情况 $2.2$。
+
+最后就是跳两格的情况 $3$，肯定只能跳一次两格，实际上就是前面一段是偶数，后面一段是奇数（要想跳一次，只能从 $2$ 开始拿）。
+
+所以预处理偶数的花费前缀和奇数的花费后缀即可。
+
+发现情况 $2.1, 2.2$ 都可以直接归化到 $3$，所以代码实现就可以简单一点，稍微调整一下循环边界即可。
+
+??? note "Code"
+	```cpp
+	
+	// 想上 CM。
+	// 我食不食油饼。
+	// 能不能来点串串题。
+	// 为什么仿射变换不考了。
+	// 算法框图的变量都是什么 shit。
+	// 什么时候才能 AP Spasmodic AT。
+	// OI 水平一降再降，快变成只会贺题的 shaber 了。
+	
+	#include <bits/stdc++.h>
+	
+	#pragma GCC target("avx,sse2,sse3,sse4,mmx")
+	#pragma GCC optimize("Ofast", "inline", "-ffast-math")
+	
+	using namespace std;
+	using i64 = long long;
+	
+	const int si = 1e5 + 10;
+	const i64 inf = 0x3f3f3f3f3f3f3f3fll;
+	
+	int n;
+	i64 a[si], w[si];
+	i64 p[si], s[si];
+	
+	void solve() {
+		cin >> n;
+		i64 ans = 0;
+	
+		for(int i = 1; i <= n; ++i) 
+			cin >> a[i];
+		
+		if(n & 1) {
+			for(int i = 2; i < n; i += 2) 
+				if(a[i] <= a[i - 1] || a[i] <= a[i + 1]) 
+					ans += max(a[i - 1], a[i + 1]) - a[i] + 1;
+	// cout << "ans = ";		
+			cout << ans << endl;
+			return; 
+		}	
+	
+		w[0] = w[1] = w[n] = w[n + 1] = w[n + 2] = 0;
+		for(int i = 2; i < n; ++i) 
+			if(a[i] <= a[i - 1] || a[i] <= a[i + 1]) 
+				w[i] = max(a[i - 1], a[i + 1]) - a[i] + 1;
+			else w[i] = 0;
+	
+		memset(p, 0, sizeof p); // prefix sum of even bulding
+		memset(s, 0, sizeof s); // suffix sum of odd building
+	
+		for(int i = 2; i < n; i += 2)
+			p[i] = p[i - 2] + w[i]; 
+		for(int i = n - 1; i > 1; i -= 2)
+			s[i] = s[i + 2] + w[i];
+	
+		ans = inf;
+		for(int i = 0; i < n; i += 2) 
+			ans = min(ans, p[i] + s[i + 3]);
+	// cout << "ans = ";	
+		cout << ans << endl;
+		return;
+	}
+	
+	int main() { 
+	
+		cin.tie(0) -> sync_with_stdio(false);
+		cin.exceptions(cin.failbit | cin.badbit);
+	
+		int T; cin >> T;
+		while(T--) 
+			solve();
+	
+		return 0;
+	}
+	```
+
+### 一个一直做 CF 都有的毛病
+
+在 UOJ 群里问了个问题：
+
+??? note "聊天记录"
+	> [保留] black_trees | 摆了 7/19/2022 9:59:43 PM
+	> vuqa，萌新打 CF 的时候经常会出现这种情况，这种情况该怎么避免啊：
+	> 能想到对的做法，但是经常自己给一个实际上没法hack的反例，
+	> 但是又觉得这个反例是对的，然后否定掉可以过掉的做法，
+	> 
+	> 保留 Κουάκερ_Ρυζιο撤回了一条消息
+	> 
+	> 菲奥德·西斯托姆·泰斯特 7/19/2022 10:01:09 PM
+	> 
+	> @[保留] black_trees | 摆了  真的去叉一下又不会死。
+	> 
+	> 被删除负三次的 skip2004 7/19/2022 10:01:12 PM
+	> 没啥问题，习惯了就好
+	> 
+	> 保留 Κουάκερ_Ρυζιο 7/19/2022 10:01:17 PM
+	> @[保留] black_trees | 摆了 大胆猜想，交了再证
+	> 
+	> 菲奥德·西斯托姆·泰斯特 7/19/2022 10:01:38 PM
+	> 多想反例总是好事）我有的时候都想不到
+	> 
+	> [保留] black_trees | 摆了 7/19/2022 10:01:54 PM
+	> 但我经常被错误的反例诱导
+	> 
+	> [保留] black_trees | 摆了 7/19/2022 10:02:12 PM
+	> 经常把一眼题搞成不可做题
+	> 
+	> [保留] black_trees | 摆了 7/19/2022 10:02:41 PM
+	> 而且自己意识不到，或者说证明不了这个反例是假的
+	> 
+	> 管理员静静已被你移出群聊撤回了一条消息，你猜猜撤回了什么。
+	> 
+	> 管理员静静已被你移出群聊 7/19/2022 10:03:41 PM
+	> 那这咋能算反例啊
+	> 
+	> [保留] black_trees | 摆了 7/19/2022 10:03:56 PM
+	> 就是我以为是反例的玩意儿（（
+	> 
+	> [保留] black_trees | 摆了 7/19/2022 10:04:05 PM
+	> 但实际上不是
+	> 
+	> 被删除负三次的 skip2004 7/19/2022 10:04:08 PM
+	> 那就以后多注意一下反例有没有问题
+	> 
+	> 管理员静静已被你移出群聊 7/19/2022 10:04:18 PM
+	> 那你都拿不出来具体的例子 又咋能叫反例
+	> 
+	> 被删除负三次的 skip2004 7/19/2022 10:04:47 PM
+	> 这些都很正常，你想反例是好的事情，解决方案就是避免想到假的反例
+	> 
+	> 被删除负三次的 skip2004 7/19/2022 10:04:52 PM
+	> 多想想就好了
+	> 
+	> 管理员静静已被你移出群聊 7/19/2022 10:04:59 PM
+	> 我一般想否定我的某个想法都是造个能让我做法假掉的数据
+	> 
+	> [保留] black_trees | 摆了 7/19/2022 10:04:59 PM
+	> thx
+
+然后再结合一下自己的情况，其实就是很多时候怕麻烦，懒，没有去深究每个点背后的东西，没有去考虑这玩意儿到底想告诉我啥。
+
+说白了就是想的不够，写的不够，推的不够。
+
+多去思考一下 special case 和 corner case 的正确性，特别要结合全局去思考，考虑完整，别抓到一个局部就跑了（除非能证明局部最优就是全局最优）。
+
+如果 spc 能归化到已有的通解上那是更好的了。
+
+### CF1714F Build a Tree and That Is It
+
+> 给你 $n$ 个节点，要求你构造一颗无根无权树，满足：
+> 
+> 给定 $d_{12},d_{23},d_{31}$，分别表示 $1,2;2,3;3,1$ 之间的距离。
+> 
+> 如果存在这样的树，构造解，否则输出 `NO`。
+
+这道题没打书面草稿，自己在 notepad 上打字模拟思路，然后画了个图就会了。
+
+不过调试很恶心（，成功地一下开到了当场 div3 的最难题 233。
+
+我们不妨假设 $d_{12},d_{23},d_{31}$ 升序排序过后为 $a,b,c$，$c_s,c_t$ 表示 $c$ 对应的那两个点，$a,b$ 同理。
+
+然后最简单的情况就是 $a + b = c$，我们直接拉一条 $c$ 对应的链 $(c_s \to c_t)$ 就可以了。
+
+然后考虑不特殊的情况，如果 $a + b \not= c$，咋搞？
+
+从最简单的情况扩展，我们在 $c$ 对应的链上再找一个点，比如这个点是 $P$，直接拉一条链出去
+
+那么我们就只需要构造出 $a_s \to P \to a_t$ 和 $b_s \to P \to b_t$ 这两条链就可以了（假设 $a_t = b_t$）。
+
+随便手完一个数据看看具体咋构造
+
+比如 $a = d12 = 4, b = d23 = 5, c = d31 = 6$
+第一条链拉出来是这样的，中间的 `O` 就是除了 $1,2,3$ 以外随便哪一个点：`1 - O - O - O - O - O - 3`
+
+???? 发现居然拉不了啊！？用代数方式严谨分析下先：
+
+设 $a_s \to P$ 长度是 $x$, $b_s \to P$ 就是 $6 - x$.
+
+然后我们拉出去的长度为 $y$，是 $a,b$ 共同享有的，
+
+所以 $4 = x + y, 5 = 6 - x + y$
+
+两个式子相加 ： $2y = 3$，显然拉不了，这就是无解的情况。
+
+严谨的方程就是 $a + b - c = 2y$，所以我们解个方程看看解是不是非负整数就能判断是否有解了。
+
+随便手完几个数据，是对的，再看看特殊情况有没有忘记的
+
+比如 n 特别大的时候？？？好像没用啊，都一样的。
+
+能怎么特殊呢？ 哦就比如上面那个构造不了的。
+
+$c = 6, a = 4, b = 5$
+
+能不能直接从 $1$ 拉两条链？本质一样。
+
+如果在下面连 $2,3$ 就成环了，没法做，所以这个构造必然很对。
+
+最后发现最简单的情况也是可以归化的，于是瞎构造就行了，这个实现略有麻烦（（（
+
+提几个细节：不要忘记把用剩下的点拉上，随便挂哪里都行。
+
+$a + b < c$ 的情况也是不行的，节点不够用也要考虑。
+
+非常巨大恶心，实现是用的 bmy 的思路，这个清晰一点，我写的是大分讨，特别臭（
+
+??? note "实现"
+	```cpp
+	void Solve() {
+		cin >> a >> b >> c;
+		if(b > a + c || c > b + a || a > c + b) {
+			cout << "NO" << endl; return;
+		}
+		if(b % 2 != (a + c) % 2 || (a + c + b) / 2 > n - 1) {
+			cout << "NO" << endl; return;
+		}
+		
+		for(int i = 1; i <= n; ++i) 
+			pa[i] = i;
+		cout << "YES" << endl;
+	
+		int cur = 1;
+		for(int i = 4; i < 4 + (a - b + c) / 2; ++i) {
+			if(a * 2 == a - b + c && i - 3 == (a - b + c) / 2) {
+				if(merge(2, cur)) cout << 2 << " " << cur << endl; break;
+			}
+			if(c * 2 == a - b + c && i - 3 == (a - b + c) / 2) {
+				if(merge(3, cur)) cout << 3 << " " << cur << endl;; break;
+			}
+			if(merge(i, cur)) cout << i << " " << cur << endl;
+			cur = i;
+		}
+		
+		int pos = cur, tp;
+		if(a * 2 == a - b + c) pos = 2;
+		if(c * 2 == a - b + c) pos = 3;
+		tp = pos, cur = max(cur, 3);
+	
+		for(int i = cur + 1; i < cur + a - (a - b + c) / 2; ++i) {
+			if(merge(tp, i)) cout << tp << " " << i << endl; tp = i;
+		}
+		if(pos != 2) if(merge(tp, 2)) cout << tp << " " << 2 << endl;
+		tp = pos;
+		
+		for(int i = 4; i <= n; ++i) {
+			if(root(1) != root(i)) {
+				cur = i; break;
+			}
+		}
+		
+		for(int i = cur; i < cur + c - (a - b + c) / 2 - 1; ++i) {
+			if(merge(tp, i)) cout << tp << " " << i << endl;
+			tp = i;
+		}
+		if(pos != 3 && merge(tp, 3)) cout << tp << " " << 3 << endl;
+		for(int i = 1; i <= n; ++i) if(merge(1, i)) cout << 1 << " " << i << endl;
+	}
+	```
+感觉这题就很好践行了上面的那个说法啊……
+
+哦其实这是 8 月份的比赛（（
+
+### CF1716D Chip Move
+
+> 给你一个长度无限的数轴，你开始在 $0$。
+> 
+> 现在要求你跳到 $n$，其中第 $i$ 步跳的长度必须是 $K + i - 1$ 的整数倍，$K$ 为一个给定常数。
+> 
+> $i\to j$ 的长度定义为 $j - i$。
+> 
+> 比如 $k = 2$，你第一步就只能跳 $2, 4, 6, 8, \dots$ 步，第二步只能跳 $3, 6, 9, 12, \dots$ 步。
+> 
+> 求总共的方案数模 $998244353$，$n,k \le 2e5$。
+
+非常傻逼的 DP 啊！居然放在 D！
+
+考虑朴素的 dp，设 $dp(i,j)$ 表示走到 $i$，一共用了 $j$ 步的方案数。
+
+然后转移肯定是从 $j-1$ 步转移，枚举上一步在哪里即可。
+
+我一开始以为这个做法是 $O(n^2)$ 的，还考虑过怎么去优化成 $O(n \log n)$，因为之前的 2D 很多都是 $O(n^2) \to O(n \log)$ 的优化。
+
+有一个事实，因为我们每次跳的都是某个数的倍数，所以这个数量级肯定不是 $O(n)$，考虑一下它应该是多少。
+
+最坏的情况，就是 $K = 1$，然后第 $i$ 步永远只跳 $K + i - 1 = i$ 这么长。
+
+那么 $\sum\limit_{x = 1}^{k} x \le n$，所以 $k \le \sqrt{n}$，也就是说枚举的位置只有 $O(\sqrt{n})$ 个。
+
+所以这个 DP 就随便过：
+
+??? note "朴素代码"
+	```cpp
+	// author : black_trees
+	
+	#include <cstdio>
+	#include <cstring>
+	#include <iostream>
+	#include <algorithm>
+	
+	#define endl '\n'
+	#define meow(x) cerr << #x << " = " << x
+	
+	using namespace std;
+	using i64 = long long;
+	
+	const int mod = 998244353;
+	
+	const int si = 2e5 + 1;
+	const int sqrt_si = 450;
+	
+	int n, K;
+	int dp[si][sqrt_si];
+	
+	int main() {	
+	
+		cin.tie(0) -> sync_with_stdio(false);
+		cin.exceptions(cin.failbit | cin.badbit);
+	
+		auto limit = [&](int j) -> int {
+			i64 res = ((K + j) * (K + j - 1) - K * (K - 1))/ 2ll;
+			if(res > 1ll * 2e5 + 10) return 0x3f3f3f3f;
+			return (int)res;
+		};
+	
+		cin >> n >> K;
+		dp[0][0] = 1;
+		for(int i = 1; i <= n; ++i) {
+			for(int j = 1; limit(j) <= i; ++j) {
+				for(int k = 1; k * (K + j - 1) <= i; ++k) {
+					dp[i][j] = (dp[i][j] + dp[i - k * (K + j - 1)][j - 1]) % mod;
+				}
+			}
+		}
+	
+		for(int i = 1; i <= n; ++i) {
+			int sum = 0;
+			for(int j = 1; limit(j) <= i; ++j) {
+				sum = (sum + dp[i][j] % mod) % mod;
+			}
+			cout << sum << ' ';
+		}
+		cout << endl;
+	
+		return 0;
+	}
+	```
+但是这个东西会 MLE，想起来转移肯定是从 $j-1$ 步转移，所以直接滚动数组：
+
+??? note "滚动数组"
+	```cpp
+	// author : black_trees
+	
+	#include <cstdio>
+	#include <cstring>
+	#include <iostream>
+	#include <algorithm>
+	
+	#define endl '\n'
+	#define meow(x) cerr << #x << " = " << x
+	
+	using namespace std;
+	using i64 = long long;
+	
+	const int mod = 998244353;
+	
+	const int si = 2e5 + 1;
+	const int sqrt_si = 450;
+	
+	int n, K;
+	int dp[si][2], ans[si];
+	
+	int main() {	
+	
+		cin.tie(0) -> sync_with_stdio(false);
+		cin.exceptions(cin.failbit | cin.badbit);
+	
+		auto limit = [&](int j) -> int {
+			i64 res = j * j;
+			if(res > 2ll * 2e5 + 10) return 0x3f3f3f3f;
+			return (int)res;
+		};
+	
+		cin >> n >> K;
+		dp[K][0] = 1; int j = 1;
+		for(int k = 0; limit(k) <= (n << 1); ++k) {
+			j = j xor 1;
+			for(int i = 0; i <= n; ++i) dp[i][j xor 1] = 0;
+			for(int i = 1; i <= n; ++i) if(i - k > K)
+				dp[i][j] = (dp[i][j] + dp[i - k - K][j]) % mod,
+				dp[i][j xor 1] = (dp[i][j xor 1] + dp[i - k - K - 1][j]) % mod;
+			int sum = 0;
+			for(int i = 1; i <= n; ++i)
+				ans[i] = (ans[i] + dp[i][j] % mod) % mod;
+		}
+		for(int i = 1; i <= n; ++i) 
+			cout << ans[i] << " ";
+		cout << endl;
+	
+		return 0;
+	}
+	```
+### CF1713D Tournament Countdown
+
+> **交互题**
+>
+> 给你一个 $2^n$ 人的淘汰赛，初始 $i, i + 1$ 一组（$i \equiv 0 (\mod 1)$）。
+>
+> 你可以问交互库不超过 $\lceil \dfrac{2^{n + 1}}{3}\rceil$ 个询问。
+> 
+> 每个询问可以询问任意两个人 $(u, v)$ 的总胜利数大小，如果相等返回 $0$，$u$ 大返回 $1$，$v$ 大返回 $2$。
+> 
+> 求最后胜出的那一个人。
+
+呃，发现这个 $\dfrac{1}{3}$ 很有意思啊！
+
+也就是说我们可能要通过一次查询问清楚更多的关系。
+
+所以只问一对内的话好像不太够。
+于是我们跳着问。
+
+$1$ 问 $3$。
+
++ 如果 $1>3$，说明 $1$ 必然打爆了 $2$，不然 $1$ 必然是 $0$，然后你不清楚 $3,4$ 的关系，因为有 $3$ 被打爆，$4$ 把 $1$ 打爆，或者 $1$ 把打爆 $3$ 的 $4$ 也打爆。，那么 $1$ 再问一次 $4$。
+
++ 如果 $1=3$，说明有两种情况，第一种是 $1,3$ 都乱杀了，第二种是都输麻了，说明还需要 $2$ 再问一次 $4$。
+
++ 如果 $1<3$，那么 $2$ 再问一次 $3$，这个同理第一种情况。
+
+最后就能 $4$ 进 $1$。
+
+然后归并一下，在剩下的里面再继续做。
+
+然后没了，次数显然很优秀。
+
+TJX 的 code，懒得写了：
+
+??? note "实现"
+	```cpp
+	#include<bitsdc++.h>
+	using namespace std;
+	int n;
+	int ask(int a,int b) {
+	  int t;
+	  cout << "? " << a << ' ' << b << endl;
+	  cin >> t;
+	  return t;
+	}
+	void solve() {
+	  vector<int> a;
+	  cin >> n;
+	  for(int i=1;i<=(1<<n);++i)
+	    a.push_back(i);
+	  for(int i=1;i<=n;++i) {
+	    vector<int> b;
+	    if(a.size()==1) {
+	      cout << "! " << a[0] << endl;
+	      return;
+	    }
+	    if(a.size()==2) {
+	      int t=ask(a[0],a[1]);
+	      if(t==1) {
+	        cout << "! " << a[0] << endl;
+	        return;
+	      } else {
+	        cout << "! " << a[1] << endl;
+	        return;
+	      }
+	    }
+	    for(int i=0;i<a.size();++i)
+	      if(i%4==0) {
+	        int t=ask(a[i],a[i+2]);
+	        if(t==1) {
+	          int u=ask(a[i],a[i+3]);
+	          if(u==1) b.push_back(a[i]);
+	          else b.push_back(a[i+3]);
+	        } else
+	        if(t==0) {
+	          int u=ask(a[i+1],a[i+3]);
+	          if(u==1) b.push_back(a[i+1]);
+	          else b.push_back(a[i+3]);
+	        } else {
+	          int u=ask(a[i+1],a[i+2]);
+	          if(u==1) b.push_back(a[i+1]);
+	          else b.push_back(a[i+2]);
+	        }
+	      }
+	    a=b;
+	  }
+	}
+	int main() {
+	  int T;
+	  cin >> T;
+	  while(T--) solve();
+	}
+	``` 
+
+## ARC145A AB Palindrome
+
+好久没打过 AT 了，今天 VP 一把爽爽（8.11）
+
+> 给你一个长度为 $N$ 的字符串 $S$。
+> $\Sigma = \{\texttt{A},\texttt{B}\}$。
+> 如果你每次可以把一个长度为 $2$ 的字串变成 $\texttt{AB}$。
+> 判定经过一些操作后 $S$ 是否可能回文。
+> $N \in [2, 2e5]$。
+
+诈骗题 * 1
+
+发现 $s(0) = \texttt{A}$ 且 $s(N - 1) = \texttt{B}$ 时必然不行。
+
+然后其它情况正着做拉通一遍或者反过来就必然可以。
+
+然后长度为 $2$ 特判一下就没了，
+
+还是有点意思。
+
+??? note "实现"
+	```cpp
+	// author : black_trees
+	
+	#include <cstdio>
+	#include <cstring>
+	#include <iostream>
+	#include <algorithm>
+	
+	#define endl '\n'
+	#define meow(x) cerr << #x << " = " << x
+	
+	using namespace std;
+	using i64 = long long;
+	
+	int main() {	
+	
+		cin.tie(0) -> sync_with_stdio(false);
+		cin.exceptions(cin.failbit | cin.badbit);
+	
+		int n; cin >> n;
+		string s; cin >> s;
+		if(n == 2) {
+			if(s[0] == s[1]) cout << "Yes" << endl;
+			else cout << "No" << endl;
+		}
+		else {
+			if(s[0] == s[n - 1]) cout << "Yes" << endl;
+			else if(s[0] == 'A' && s[n - 1] == 'B') cout << "No" << endl;
+			else cout << "Yes" << endl;
+		}
+		return 0;
+	}
+	
+	
+	```
+
+## ARC145C Split and Maximize
+
+> 给定一个 $1 \to 2n$ 的排列 $p$，把 $p$ 拆成两个长度相等的子序列 $A, B$。
+> 
+> $p$ 的分数定义为所有可能的 $\sum\limits_{i = 1}^n a_i b_i$ 的最大值。
+> 
+> 求有多少个 $p$ 的分数是最大的, $1\le n \le 2e5$。
+
+[排序不等式](../algor/basic/greedy.md#_2)，可以得到最大得分为 $Mx = \sum_{i = 1}^n 2i(2i - 1)$。
+
+考虑怎么样才能凑出 $Mx$，就是让所有 $2i - 1$ 和 $2i$ **按顺序**配成一对就行了。
+
+看一个不能的例子： $126345$，这里 $6$ 应该和 $5$ 配对才行，但是中间插了一个 $3, 4$ 进去，如果 $[126],[345]$，虽然 $6,5$ 配对了，但是前面的就不能配对了。
+
+$123546$，这种也无论如何都不行，因为 $3, 4$ 和 $5, 6$ 交叉了（有包含关系）。
+
+不妨把 $2i - 1$ 看作左括号，$2i$ 看作右括号。
+
+可以发现每一个 $2i$，和他配对的 $2i-1$ 都必须是离他最近的一个左括号。
+
+也就是说，必须要是 `()()()()...()` 或者 `)()()(...)(`，或者 `)(()...` 的情况。
+
+方便讨论，把他们全部归化到 `()()()()...()` 的情况，再在内部排列交换。
+
+显然这个是 RBS 计数，一共 $Cat(n)$ 种可能，每种可能内部可以交换 Pair 的顺序，$Cat(n)\times n!$，然后每个 Pair 内部又可以换顺序，所以最终答案是 $Cat(n)\times n! \times 2^n$。
+
+很妙的题。
+
+??? note "实现"
+	```cpp
+	// author : black_trees
+	// 贺的粉兔的（
+	// 因为组合数板子找不到了（
+	#include <cstdio>
+	#include <cstring>
+	#include <iostream>
+	#include <algorithm>
+	
+	#define endl '\n'
+	#define meow(x) cerr << #x << " = " << x
+	
+	using namespace std;
+	using i64 = long long;
+	
+	const int mod = 998244353;
+	const int si = 2e5 + 10;
+	
+	inline int qpow(int b, int e) {
+		int a = 1;
+		for(; e; e >>= 1, b = (int)(1ll * b * b % mod))
+			if (e & 1) a = (int)(1ll * a * b % mod);
+		return a;
+	}
+	inline int inv(int b) { return qpow(b, mod - 2); }
+	
+	int fact[si * 2], invf[si * 2];
+	inline void init(int n) {
+		fact[0] = 1;
+		for(int i = 1; i <= n; ++i) 
+			fact[i] = (int)(1ll * fact[i - 1] * i % mod);
+		invf[n] = inv(fact[n]);
+		for(int i = n; i >= 1; --i) 
+			invf[i - 1] = (int)(1ll * invf[i] * i % mod);
+	}
+	inline int C(int n, int m) {
+		if (m < 0 || m > n) 
+			return 0;
+		return (int)(1ll * fact[n] * invf[m] % mod * invf[n - m] % mod);
+	}
+	
+	int main() {
+		
+		cin.tie(0) -> sync_with_stdio(false);
+		cin.exceptions(cin.failbit | cin.badbit);
+		
+		int n; cin >> n, init(2 * n);
+		int ans = (C(2 * n, n) - C(2 * n, n - 1) + mod) % mod;
+		ans = (int)(1ll * ans * fact[n] % mod * qpow(2, n) % mod);
+		cout << ans << endl;
+		return 0;
+	}
+	
+	```
+
+## CF1721D Maximum AND
+
+> 给定序列 $a,b$，可以重排 $b$，求 $\operatorname{AND}\limits_{i = 1}^n(a(i) \oplus b\prime(i))$。
+> 
+> $n \le 1e5, a_i, b_i \in [0, 2^30)$
+
+看到这个 AND 最大不难想到尽量让高位是 $1$，说白了就是从高到低贪心，并且如果这个高位只能是 $0$，对于答案是没有影响的。
+
+正确性也比较好证明，我假设我这个高位可以是 $1$，但是会导致某个低位变成 $0$，我显然是不管低位直接让高位为 $1$，如果这个高位怎么都没办法是 $1$，那么我们直接不管，摆烂。
+
+做法大概就是对于每一位，要判 $a$ 的 0 的个数是否和 $b$ 的 1 的个数一样且 $a$ 的 1 的个数是否和 $b$ 的 0 的个数一样。
+
+然后我们从高位开始，直接把这个分类，$a0, b1$ 分一起， $a1,b0$ 分一起。
+
+然后在低位判断是否可行的时候，对于低位分一次组，然后看和高位的要求是否一样，不行就摆烂。
+
+和 ARC146B 比较类似，所以就不写 ARC146B 了。
+
+??? note "实现"
+	```cpp
+	// author : black_trees
+	
+	#include <map>
+	#include <cstdio>
+	#include <cstring>
+	#include <iostream>
+	#include <algorithm>
+	
+	#define endl '\n'
+	
+	using namespace std;
+	using i64 = long long;
+	
+	const int si = 1e5 + 100;
+	const int inf = (1 << 30);
+	
+	int a[si], b[si];
+	std::map<int, int> True, False;
+	
+	#define is_true(val, bit) (val >> (bit - 1) & 1)
+	
+	int main() {	
+	
+		cin.tie(0) -> sync_with_stdio(false);
+		cin.exceptions(cin.failbit | cin.badbit);
+	
+		int T; cin >> T;
+		while(T--) {
+			int n; cin >> n;
+			for(int i = 1; i <= n; ++i)
+				cin >> a[i];
+			for(int i = 1; i <= n; ++i)
+				cin >> b[i];
+	
+			int ans = 0;
+			for(int i = 30; i >= 1; --i) {
+				True.clear(), False.clear();
+				int need = inf - (1 << (i - 1));
+				for(int j = 1; j <= n; ++j) {
+					if(is_true(b[j], i)) True[b[j] & need ^ need]++;
+					else False[b[j] & need ^ need]++;
+				}
+				bool ff = true;
+				for(int j = 1; j <= n; ++j) {
+					if(is_true(a[j], i)) {
+						if((False[a[j] & need]--) < 1)
+							ff = false;
+					} 
+					else {
+						if((True[a[j] & need]--) < 1) 
+							ff = false;
+					}
+				}
+				if(ff) ans += (1 << (i - 1));
+				else {
+					for(int j = 1; j <= n; ++j) {
+						if(is_true(b[j], i)) b[j] -= (1 << (i - 1));
+						if(!is_true(a[j], i)) a[j] += (1 << (i - 1));
+					}
+				}
+			}
+			cout << ans << endl;
+		}
+	
+		return 0;
+	}
+	```
+
+## CF1720D1
+
+> 给你一个长为 $n$ 的整数数组 $a$，从 $0$ 开始编号。
+>
+> 一个长为 $m$ ，从 $0$ 开始编号的整数数组 $b$ 是数组 $a$ 的 subsequence，当且仅当 $0\leq b_0<b_1<\dots<b_{m-1}<n$。
+>
+> 若 $b$ 是 $a$ 的 beautiful subsequence，当且仅当满足以下条件：
+>
+> + $b$ 是 $a$ 的 subsequence；
+> + $\forall p\in[0,m)\cap\textbf{N},a_{b_p}\oplus b_{p+1}<a_{b_{p+1}}\oplus b_p$。
+>
+> 其中 $\oplus$ 表示位运算中的异或运算。
+>
+> 现在，你需要求出最长的 beautiful subsequence 有多长。
+> 
+> $a_i \le 200, n\le 3e5$..
+
+翻译来自[洛谷](https://www.luogu.com.cn/problem/CF1720D1)
+
+这题里面 b 是下标，神必出题人写那么复杂干嘛。
+
+就是先考虑一个简单的 DP，定义 $dp(i)$ 表示 $[1,i]$ 的最长好子序列长度。
+
+可以得到 $O(n^2)$ 方程：$dp(i) = \max\limits_{j = 0}^{i - 1} \{dp(j) + 1\} \land a_{j}\oplus i<a_i\oplus j$。
+
+复杂度主要花在枚举 $j$ 上面，考虑缩小转移状态集合。
+
+发现 $a_i \le 200$，在二进制下考虑，$200 < 256$，所以 $a_i,a_j$ 只能影响最低的 8 位。
+
+如果 $\exists j \le i - 256$，可以发现 $j$ 怎么都转移不过来，因为异或是不进位加法，在这里影响不了第 $9$ 位。
+
+如果 $i - 256 \ge j$，说明 $j$ 直接在第九位比 $i$ 少了一个 $1$，死活补不了，所以可以发现合法的转移只能是 $j \in (i - 256, i)$。
+
+然后 dp 就变成 $O(256n)$ 了。
+
+??? note "实现"
+	```cpp
+	// author : black_trees
+	
+	#include <cstdio>
+	#include <cstring>
+	#include <iostream>
+	#include <algorithm>
+	
+	#define endl '\n'
+	#define meow(x) cerr << #x << " = " << x
+	
+	using namespace std;
+	using i64 = long long;
+	
+	const int si = 3e5 + 10;
+	
+	i64 a[si], dp[si];
+	
+	int main() {	
+	
+		cin.tie(0) -> sync_with_stdio(false);
+		cin.exceptions(cin.failbit | cin.badbit);
+	
+		int T; cin >> T;
+		while(T--) {
+			int n; cin >> n;
+			for(int i = 1; i <= n; ++i) 
+				cin >> a[i];
+			for(int i = 1; i <= n; ++i) 
+				dp[i] = 1ll;
+			i64 ans = -1ll;
+			for(int i = 2; i <= n; ++i) {
+				int from = max(i - 256, 1);
+				for(int j = from; j <= i - 1; ++j)
+					if((a[i] ^ (1ll * j - 1ll)) > (a[j] ^ (1ll * i - 1ll)))
+						dp[i] = max(dp[j] + 1ll, dp[i]);
+				ans = max(ans, dp[i]);
+			}
+			cout << ans << endl;
+		}
+	
+		return 0;
+	}
+	``` 

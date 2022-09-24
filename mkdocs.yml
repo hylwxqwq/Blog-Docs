@@ -1,0 +1,307 @@
+site_name: black_trees' blog
+site_author: black_trees
+site_url: https://hylwxqwq.github.io
+copyright: 'Copyright &copy; 2022 @black_trees'
+
+repo_name: 'hylwxqwq/hylwxqwq.github.io'
+repo_url: 'https://github.com/hylwxqwq/hylwxqwq.github.io'
+
+theme:
+  name: 'material'
+  custom_dir: overrides
+  favicon: img/wife-best.png
+  logo: img/wife-best.png
+  language: 'zh'
+  features:
+    # - navigation.instant # 点击内部链接时，不用全部刷新页面 # 会导致 数学公式第一次进入时加载失败
+    - navigation.tracking # 在url中使用标题定位锚点
+    - navigation.tabs # 顶部显示导航顶层nav（也就是第一个节点）
+    - navigation.tabs.sticky # 滚动时隐藏顶部nav，需要配合navigation.tabs使用
+    - navigation.sections # nav节点缩进
+    # - navigation.expand # 不折叠左侧nav节点
+    - navigation.indexes # 指定节点index pages ，跟instant不兼容
+    - toc.integrate # 右侧生产目录
+    - toc.follow
+    - navigation.top # 一键回顶部
+    - search.suggest
+    - search.highlight
+  font:
+    text: PT Serif
+    code: Fira Code
+  palette:
+    - primary: deep purple
+    - accent: indigo
+    # - scheme: slate
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/hylwxqwq
+      name: Github
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/blacktrees9
+      name: Twiiter
+    - icon: fontawesome/brands/telegram
+      link: https://t.me/real_black_trees
+      name: Telegram
+    - icon: fontawesome/brands/qq
+      link: https://wpa.qq.com/msgrd?V=3&Uin=1020061231
+      name: QQ
+    - icon: fontawesome/solid/envelope
+      link: mailto:<black_trees@foxmail.com>
+      name: E-Mail
+
+# 我可能真的不会学完这里所有的东西。
+# 但是学了的就一定要学精细。
+# OI 不是靠算法学的多赢的。
+# 是靠算法学的灵活不灵活。
+nav:
+  - HomePage: index.md
+  - FriendLinks: links.md
+  - Algorithm: 
+    - algor/index.md
+    - 算法基础:
+      - 位运算: algor/basic/binary-operation.md
+      - 二分: algor/basic/binary-search.md
+      - 排序: algor/basic/sorting.md
+      - 贪心: algor/basic/greedy.md
+      - 倍增: algor/basic/binary-lifting.md
+      # - 哈希:
+      - 前缀和 & 差分: algor/basic/difference-and-prefix-sum.md
+      - 时间复杂度分析: algor/basic/time-complexity.md
+    - 动态规划:
+      - DP 基础:
+        - 集合式分析法: algor/dp/basic/set-analytical-method.md
+        - 如何设计状态 & 方程: algor/dp/basic/how-to-think.md
+      - 背包 DP: algor/dp/knapsack-dp.md
+      - 区间 DP: algor/dp/interval-dp.md
+      - 树形 DP: algor/dp/tree-dp.md
+      - 状压 DP: algor/dp/states-compressing-dp.md
+      - 数位 DP: algor/dp/digit-dp.md
+      - SOS DP: algor/dp/sos-dp.md
+      - DP 优化:
+        # - 单调栈优化: algor/dp/opt/monotonous-stack-optimize.md
+        - 单调队列优化: algor/dp/opt/monotonous-queue-optimize.md
+        - 数据结构优化: algor/dp/opt/data-structure-optimize.md
+        - 斜率优化: algor/dp/opt/convex-optimize.md
+        # - 四边形不等式:
+        # - 长链剖分优化:
+        # - Slope Trick:
+      # - 动态 DP:
+    - 图论:
+      - 图论基础:
+        - 链式前向星: algor/graph/basic/list-forward-star.md
+        - 树的遍历: algor/graph/basic/tree-traversal.md
+        - DFS 序相关: algor/graph/basic/dfs-order.md
+        - 简单图论问题: algor/graph/basic/simple-graph-theory-problem.md
+      - 最短路: algor/graph/sssp.md
+      # - 同余最短路:
+      - 最小生成树: algor/graph/mst.md
+      - 最近公共祖先: algor/graph/lca.md
+      - 负环 & 差分约束: algor/graph/negative-ring-and-difference-constraint.md
+      - 连通性问题:
+        - 双连通分量: algor/graph/connectivity/dcc.md
+        - 强连通分量: algor/graph/connectivity/scc.md
+        - 2-SAT 问题: algor/graph/connectivity/2sat.md
+      - 二分图: algor/graph/bipartite-graph.md
+      - 树上启发式合并: algor/graph/dsu-on-tree.md
+      # - 树哈希:
+      # - 树分治:
+      # - 动态树分治:
+      # - 网络流:
+        # - 最大流:
+        # - 费用流:
+        # - 最小割:
+        # - 上下界网络流:
+      # - 虚树
+      # - 圆方树:
+      # - 斯坦纳树:
+      # - 矩阵树定理:
+      # - 带花树:
+    - 数据结构:
+      - 简单数据结构:
+        - 栈: algor/ds/easy/stack.md
+        - 队列: algor/ds/easy/queue.md
+        - 链表: algor/ds/easy/list.md
+        # - 哈希表:
+        - 单调栈: algor/ds/easy/monotonous-stack.md
+        - 单调队列: algor/ds/easy/monotonous-queue.md
+      - 普通数据结构:
+        # - 并查集:
+        - 线段树: algor/ds/normal/segtree.md
+        - 线段树二分: algor/ds/normal/binary-search-on-segtree.md
+        - 树状数组: algor/ds/normal/fenwick.md
+        # - 树状数组上二分/倍增: algor/ds/normal/binary-search-on-fenwick.md
+        - 普通分块: algor/ds/normal/blocks.md
+      - 高级数据结构:
+        - 轻重链剖分: algor/ds/hard/hld.md
+        # - 长链剖分:
+        # - 块状链表:
+        # - 树分块:
+        # - zkw 线段树:
+        # - 李超线段树:
+        # - 可撤销并查集:
+        # - 线段树分治:
+        # - SegmentTreeBeats(区间最值操作，区间历史最值):
+        # - Fhq-Treap: 
+        # - Splay:
+        # - 全局平衡二叉树:
+        # - 左偏树:
+        - 可持久化数据结构:
+          # - 可持久化线段树:
+          - 可持久化 Trie: algor/ds/hard/persistent-trie.md
+      - 神奇科技:
+        - 珂朵莉树: algor/ds/lunatic/odt.md
+    - 数学:
+      - 基础数论:
+        - 质数: algor/math/number-theory/prime.md
+        - 约数: algor/math/number-theory/factor.md
+        # - 同余:
+        # - 数论分块:
+        # - 二项式反演:
+        # - 莫比乌斯反演:
+        # - Min25 筛:
+        # - 杜教筛:
+        # - 州阁筛:
+      - 线性代数:
+        - 矩阵: algor/math/linear-algebra/matrix.md
+        - 置换: algor/math/linear-algebra/perm.md
+        - 偏序: algor/math/linear-algebra/poset.md
+        # - 高斯消元:
+        # - 线性基:
+      - 组合数学:
+        - 排列组合: algor/math/combinatorics/combination.md 
+        - 鸽巢原理: algor/math/combinatorics/pigeonhole-principle.md
+        - 容斥原理: algor/math/combinatorics/inclusion-exclusion-principle.md
+        - 斯特林数: algor/math/combinatorics/stirling.md
+        - 卡特兰数: algor/math/combinatorics/catalan.md
+        # - 康托展开:
+        # - 卢卡斯定理:
+      # - 概率论:
+      # - 博弈论:
+      # - 多项式:
+        # - 多项式基础:
+        # - 拉格朗日插值:
+        # - FFT:
+        # - NTT:
+        # - FWT:
+        # - 多项式全家桶:
+      # 生成函数:
+        # - 普通生成函数:
+        # - 指数生成函数:
+        # - 狄利克雷生成函数:
+      # - 一些杂项:
+    - 字符串:
+      # - KMP:
+      # - 字符串哈希:
+      - Trie: algor/string/trie.md
+      # - Z 函数:
+      # - 最小表示法:
+      # - manacher:
+      # - AC 自动机:
+      # - 后缀数组:
+      # - 后缀自动机:
+      # - 广义后缀自动机:
+      # - 后缀树:
+      # - 后缀平衡树:
+      # - Lyndon 分解:
+    - 杂项:
+      - 离线算法:
+        - 普通莫队: algor/misc/mo.md
+        # - 树上莫队:
+        # - Cdq 分治:
+        # - 整体二分:
+      - 随机化算法:
+        - mt19937: algor/misc/mt19937.md
+        # - 模拟退火:
+      - 表达式求值: algor/misc/expression.md
+      # - DancingLinksX: 
+      # - MeetInTheMiddle:
+      # - 双向 Bfs:
+      # - 优先队列 Bfs:
+      # - IDAStar:
+  - Records: 
+    - rec/index.md
+    - Atcoder&Codeforces:
+      - 早期记录:
+        - CF & AT 杂题: rec/old/old-cf-at-misc.md
+        - CF & AT 题解: rec/old/old-cf-at-sol.md
+      - 2022年2月AT&CF: rec/atcf-for-2022-02.md
+      - 2022年3月AT&CF: rec/atcf-for-2022-03.md
+      - 2022年4月AT&CF: rec/atcf-for-2022-04.md
+      - 2022年5月AT&CF: rec/atcf-for-2022-05.md
+      - 2022年7,8月AT&CF: rec/atcf-for-2022-07.md
+    - Practicing:
+      - 2022年2月练习记录:  rec/tricks-for-2022-02.md
+      - 2022年3月练习记录:  rec/tricks-for-2022-03.md
+      - 2022年4月练习记录:  rec/tricks-for-2022-04.md
+      - 2022年5月练习记录:  rec/tricks-for-2022-05.md
+    - 一些有意思的小专题:
+      - 线段树的扩展运用: rec/interesting/segtree-tricks.md
+      - 答案上界特别小的一类问题: rec/interesting/small-upper-bound.md
+      - 关于组合数学和计数的一些小问题: rec/interesting/comb-problem.md
+  - Solutions: 
+    - sol/index.md
+    - 部分模拟赛改错:
+      - 20220413B组: sol/mock/220413B.md
+      - 20220429C组: sol/mock/220429C.md
+      - 20220511C组: sol/mock/220511C.md
+      - 20220518C组: sol/mock/220518C.md
+      - 模拟赛赛后总结:
+        - 20220525C组: sol/mock/sum/220525C.md
+        - 20220603C组(22/08/30 VP): sol/mock/sum/220603C.md
+    - 解题报告:
+      - ACWing277: sol/pro/acwing277.md
+      - ACWing355: sol/pro/acwing355.md
+      - BZOJ3307: sol/pro/bzoj3307.md
+      - CF713C: sol/pro/cf713c.md
+      - CF1637F: sol/pro/cf1637f.md
+      - CF1651E: sol/pro/cf1651e.md
+      - UOJ105: sol/pro/uoj105.md
+  - Resource:
+    - sce/index.md
+    - 初赛知识复习: sce/menu.md
+  - Waifu:
+    - waifu.md
+
+extra_javascript:
+  # - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/mathjax/3.2.0/es5/tex-chtml.min.js
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - codehilite:
+      guess_lang: false
+      linenums: false
+  - def_list
+  - footnotes
+  - meta
+  - toc:
+      permalink: 😅
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.highlight:
+      linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.snippets
+  - pymdownx.progressbar
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: math
+          class: arithmatex
+          format: !!python/name:pymdownx.arithmatex.fence_mathjax_format
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - mdx_math
