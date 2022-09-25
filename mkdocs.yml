@@ -148,7 +148,7 @@ nav:
         # - 全局平衡二叉树:
         # - 左偏树:
         - 可持久化数据结构:
-          # - 可持久化线段树:
+          - 主席树: algor/ds/hard/persistent-segtree.md
           - 可持久化 Trie: algor/ds/hard/persistent-trie.md
       - 神奇科技:
         - 珂朵莉树: algor/ds/lunatic/odt.md
