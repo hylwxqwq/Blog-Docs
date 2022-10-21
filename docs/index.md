@@ -18,7 +18,7 @@
 
 ### About me
 
-SC 高一退役 OIer。
+SC 高一 OIer。
 
 来自 Chengdu Foreign Languages School, Class 2, Senior 1.
 
@@ -66,15 +66,7 @@ CF 有三个号：black_trees, royo_sea, royo_black_treesea
 
 其它 Social 类的联系方式都在页脚右下角。
 
-----
-
-爱好还挺多的。
-
-1. OI，比较喜欢字符串和思维题。
-2. 篮球，主要打大前，篮下勾手和三分很准，三分只有无球跑位之后会出手，球风很米勒。
-3. 车万，很久不打了，差不多是个 STG N党，Ex 也能混几个。
-4. 音游，4k 刚入门。 
-5. Vtuber: 只看粉色猫猫 Hiiro，每次笑都感觉挺治愈（不是）有趣（不是）魔性（就是），可能是 Hiiro 只有几万粉的时候开始看的。
+成分不算复杂，车万 + OIer，喜欢打球，以前是球场四大怪之一——高瘦远投王，现在很久没打球了。
 
 ----
 
@@ -111,13 +103,13 @@ CF 有三个号：black_trees, royo_sea, royo_black_treesea
 + zc （高一退役的悲惨学长，但是whk怒卷到级前 25）
 + mjc, hyf, cx, zxp, hx （在 5 号机房认识的 21 级学长）
 + yja （最早通过机房遗留物认识的学长，很早就退役了）
-+ lwh, lyx （都很可惜，退役了的学长）
++ lwh, lyx （都很可惜，退役了的学长，不过都是 whk 卷王）
 
 #### Juniors
 
 + hfy （orz grass8cow，SC E 队队长！）
 + wcx, xy （比我小，比我强）
-+ lzq, ckq （不是很熟的学弟）
++ lzq（不是很熟的学弟）
 
 #### Internet
 

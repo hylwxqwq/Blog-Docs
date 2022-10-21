@@ -66,7 +66,6 @@ nav:
       - 排序: algor/basic/sorting.md
       - 贪心: algor/basic/greedy.md
       - 倍增: algor/basic/binary-lifting.md
-      # - 哈希:
       - 前缀和 & 差分: algor/basic/difference-and-prefix-sum.md
       - 时间复杂度分析: algor/basic/time-complexity.md
     - 动态规划:
@@ -123,7 +122,7 @@ nav:
         - 栈: algor/ds/easy/stack.md
         - 队列: algor/ds/easy/queue.md
         - 链表: algor/ds/easy/list.md
-        # - 哈希表:
+        - 哈希表: algor/basic/hash-table.md
         - 单调栈: algor/ds/easy/monotonous-stack.md
         - 单调队列: algor/ds/easy/monotonous-queue.md
       - 普通数据结构:
@@ -192,8 +191,8 @@ nav:
         # - 狄利克雷生成函数:
       # - 一些杂项:
     - 字符串:
-      # - KMP:
-      # - 字符串哈希:
+      - KMP: algor/string/kmp.md
+      - 字符串哈希: algor/string/string-hash.md
       - Trie: algor/string/trie.md
       # - Z 函数:
       # - 最小表示法:
@@ -213,7 +212,7 @@ nav:
         # - 整体二分:
       - 随机化算法:
         - mt19937: algor/misc/mt19937.md
-        # - 模拟退火:
+        - 模拟退火: algor/misc/simulate-anneal.md
       - 表达式求值: algor/misc/expression.md
       # - DancingLinksX: 
       # - MeetInTheMiddle:
@@ -248,6 +247,7 @@ nav:
       - 20220429C组: sol/mock/220429C.md
       - 20220511C组: sol/mock/220511C.md
       - 20220518C组: sol/mock/220518C.md
+      - 20221020C组: sol/mock/221020C.md
       - 模拟赛赛后总结:
         - 20220525C组: sol/mock/sum/220525C.md
         - 20220603C组(22/08/30 VP): sol/mock/sum/220603C.md
