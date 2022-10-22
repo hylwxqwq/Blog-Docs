@@ -121,3 +121,70 @@ _________________
 然后对于 $m = i$ 的情况，可以把 $3$ 放到这些数里面插板（可以是头尾），或者直接乘到这些数上面，所以此时的方案数是 $(i + 1 + i) \times i!$，因为还可以全排列。
 
 然后就只能对于每个情况硬算了。。。。。
+
+## 线性求逆元
+
+乘法逆元的定义大概就是，如果 $a \times inv \equiv 1 (\mod p)$，那么 $inv$ 就是 $a$ 在模 $p$ 意义下的乘法逆元，一般记作 $a^{-1}$ 或者 $inv(a)$。
+
+正常来说应该用群论来解释逆元的定义，但是我懒，不想写了。
+
+你可以理解成 $a\times a^{-1} \equiv a\times inv \equiv1 (\mod p)$，也就是说可以用来处理带取模的除法。
+
+因为加减乘在取模意义下都是封闭的，但是除法就没法处理。
+
+所以为了让除法在取模意义下也是封闭的，我们把除法转化成乘上分母的乘法逆元即可。
+
+也就是说 $\dfrac{a}{b} \equiv a\times b^{-1} \equiv a\times inv(b) (\mod p)$。
+
+有一个小注意点是，$inv(a)\times inv(b) = inv(ab)$，这个从定义上的封闭性即可知道。
+
+求法可以直接用费马小定理：
+
+如果 $a,p$ 互质，则 $a$ 在模 $p$ 意义下的逆元是 $a^{p-2}$，快速幂即可 $O(\log n)$ 求，这里也说明了只有 $p$ 是质数的时候，对于任意给定的值域小于 $2p$ 的序列都可以求出逆元。 
+
+然后我们对于一个值域为 $[1,n]$ 的数列，我们要求出每一项在 $\mod p$ 意义下的逆元（$p$ 是质数），这样做肯定不好搞，所以考虑一个可以线性递推的做法
+
+首先令 $r = i\mod p$，令 $\lfloor p/i\rfloor = k$，即 $ki+r \equiv 0(\mod p)$。
+
+然后就是移项，把 $i$ 单独留一边，另外一边是一个小于 $i$ 的数的逆元的形式。
+
+$$
+\begin{aligned}
+ki+r &\equiv 0 &(\mod p)\\
+i &\equiv \dfrac{-r}{k} &(\mod p)\\
+i &\equiv -r \times inv(k) &(\mod p)\\
+i &\equiv -inv(k)\times r &(\mod p)\\
+inv(i) &\equiv -k\times inv(r) &(\mod p)\\
+inv(i) &\equiv -\lfloor p/i\rfloor \times inv(p \mod i) &(\mod p)
+\end{aligned}
+$$
+
+最后一步这里有负数，加一下（如果 $x < 0$，则 $x \equiv p - x (\mod p)$ ）：
+
+$$
+inv(i)\equiv (p - p/i) \times inv(p \mod i) (\mod p)
+$$
+
+于是就能线性递推了，组合数啥的也能求：
+
+```cpp
+const int mod = 998244353;
+
+int inv[si], fact[si], invf[si];
+void init(int n) {
+    inv[1] = 1, fact[0] = invf[0] = 1;
+    for(int i = 2; i <= n; ++i)
+        inv[i] = 1ll * (mod - mod / i) * inv[mod % i] % mod;
+    for(int i = 1; i <= n; ++i)
+        fact[i] = 1ll * fact[i - 1] * i % mod,
+        invf[i] = 1ll * invf[i - 1] * inv[i] % mod;
+}
+int C(int n, int m) {
+    if(m < 0 || n < m) return 0;
+    return 1ll * fact[n] * invf[n - m] % mod * invf[m] % mod;
+}
+int Catalan(int n) {
+    return 1ll * C(n * 2, n) % mod * inv[n + 1] % mod;
+}
+```
+

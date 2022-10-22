@@ -280,7 +280,7 @@ markdown_extensions:
   - footnotes
   - meta
   - toc:
-      permalink: 😅
+      permalink: ψ(｀∇´)ψ
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.caret
