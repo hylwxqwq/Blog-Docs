@@ -220,7 +220,7 @@ $in\_edge$ 存在的原因是，如果按照正常搜索树的更新方式，$fa
 				if(dfn[u] <= low[v]) {
 					++flag;
 					// 根节点特判
-					if(u != root || flag > 1) {
+					if(u != root || flag > 1) { // 注意这里是短路运算符，不要打反了。
 						cut[u] = true;
 					}
 					int x; ++cnt;

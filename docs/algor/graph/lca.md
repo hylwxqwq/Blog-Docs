@@ -11,6 +11,8 @@
 
 然后现在给定一个询问 $lca(u,v)$，考虑把深度较大的那一个往上跳到它的 $2$ 的 $\log_2n,\log_2n-1,\dots 0$ 级祖先（此处是**从大到小**枚举）
 
+其本质就是倍增地往上跳。
+
 （每个都试一试，如果这个祖先 $f_{u,i}$ 的深度 $dep_{f_{u,i}}$ 大于等于原来深度更小的点的深度 $dep_v$，就跳到这个祖先 $f_{u,i}$）。
 
 如果此时两个节点重合了，LCA 就是原来深度小的节点。
@@ -24,7 +26,7 @@
 	int dep[si_n],f[si_n][20];
 	inline void dfs(int u,int fa){
 		dep[u]=dep[fa]+1,f[u][0]=fa;
-	    for(register int i=1;i<=19;--i) 
+	    for(register int i=1;i<=19;++i) 
 	        f[u][i]=f[f[u][i-1]][i-1];
 	    for(register int i=e[u].head;i;i=e[i].Next){
 			int v=e[i].ver; 

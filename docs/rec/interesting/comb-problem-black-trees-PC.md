@@ -187,3 +187,4 @@ int Catalan(int n) {
     return 1ll * C(n * 2, n) % mod * inv[n + 1] % mod;
 }
 ```
+

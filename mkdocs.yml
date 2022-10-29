@@ -222,6 +222,7 @@ nav:
   - Records: 
     - rec/index.md
     - Atcoder&Codeforces:
+      - ARC VP 集合: rec/arc-vp-record.md
       - 早期记录:
         - CF & AT 杂题: rec/old/old-cf-at-misc.md
         - CF & AT 题解: rec/old/old-cf-at-sol.md
@@ -229,7 +230,8 @@ nav:
       - 2022年3月AT&CF: rec/atcf-for-2022-03.md
       - 2022年4月AT&CF: rec/atcf-for-2022-04.md
       - 2022年5月AT&CF: rec/atcf-for-2022-05.md
-      - 2022年7,8月AT&CF: rec/atcf-for-2022-07.md
+      - 2022年7,8月AT&CF: rec/atcf-for-2022-07-08.md
+      - 2022年9,10月AT&CF: rec/atcf-for-2022-09-10.md
     - Practicing:
       - 2022年2月练习记录:  rec/tricks-for-2022-02.md
       - 2022年3月练习记录:  rec/tricks-for-2022-03.md
@@ -248,6 +250,10 @@ nav:
       - 20220511C组: sol/mock/220511C.md
       - 20220518C组: sol/mock/220518C.md
       - 20221020C组: sol/mock/221020C.md
+      - 20221023C组: sol/mock/221023C.md
+      - 20221023D组: sol/mock/221023D.md
+      - 20221025C组: sol/mock/221025C.md
+      - 20221027C组: sol/mock/221027C.md
       - 模拟赛赛后总结:
         - 20220525C组: sol/mock/sum/220525C.md
         - 20220603C组(22/08/30 VP): sol/mock/sum/220603C.md
