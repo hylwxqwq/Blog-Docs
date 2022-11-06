@@ -166,7 +166,7 @@ nav:
         - 矩阵: algor/math/linear-algebra/matrix.md
         - 置换: algor/math/linear-algebra/perm.md
         - 偏序: algor/math/linear-algebra/poset.md
-        # - 高斯消元:
+        - 高斯消元: algor/math/linear-algebra/gauss.md
         # - 线性基:
       - 组合数学:
         - 排列组合: algor/math/combinatorics/combination.md 
