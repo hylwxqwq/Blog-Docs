@@ -68,6 +68,13 @@ CF 有三个号：black_trees, royo_sea, royo_black_treesea
 
 成分不算复杂，车万 + OIer，喜欢打球，以前是球场四大怪之一——高瘦远投王，现在很久没打球了。
 
+也是音游人。
+
+写过一些 osu mania！谱子，欢迎暴打：
+
+- [GOODTEK - EBIMAYO](https://osu.ppy.sh/beatmapsets/1866379#mania/3839074)
+- [514 - Maritumix](https://osu.ppy.sh/beatmapsets/1879439#mania/3869199)
+
 ----
 
 **MD 你能不能清醒一点，你 OI 没啥水平，whk 也不行啊！！！**
