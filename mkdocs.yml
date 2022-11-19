@@ -27,7 +27,7 @@ theme:
     - search.highlight
   font:
     text: PT Serif
-    code: Fira Code
+    code: Consolas
   palette:
     - primary: deep purple
     - accent: indigo
@@ -77,6 +77,7 @@ nav:
       - 树形 DP: algor/dp/tree-dp.md
       - 状压 DP: algor/dp/states-compressing-dp.md
       - 数位 DP: algor/dp/digit-dp.md
+      - 期望 DP: algor/dp/expectation.md
       - SOS DP: algor/dp/sos-dp.md
       - DP 优化:
         # - 单调栈优化: algor/dp/opt/monotonous-stack-optimize.md
@@ -232,6 +233,7 @@ nav:
       - 2022年5月AT&CF: rec/atcf-for-2022-05.md
       - 2022年7,8月AT&CF: rec/atcf-for-2022-07-08.md
       - 2022年9,10月AT&CF: rec/atcf-for-2022-09-10.md
+      - 2022年11月AT&CF: rec/atcf-for-2022-11.md
     - Practicing:
       - 2022年2月练习记录:  rec/tricks-for-2022-02.md
       - 2022年3月练习记录:  rec/tricks-for-2022-03.md
@@ -265,9 +267,16 @@ nav:
       - CF1637F: sol/pro/cf1637f.md
       - CF1651E: sol/pro/cf1651e.md
       - UOJ105: sol/pro/uoj105.md
-  - Resource:
+  - Misc:
     - sce/index.md
-    - 初赛知识复习: sce/menu.md
+    - OI 相关知识:
+      - 初赛知识复习: sce/menu.md
+      - OI 常用 Vim 命令: sce/vim-usage.md
+    - OI 游记:
+      # - CSP2020: sce/CSP2020.md
+      # - CSP2021: sce/CSP2021.md
+      - CSP2022: sce/CSP2022.md
+      - NOIP2022: sce/NOIP2022.md
   - Waifu:
     - waifu.md
 

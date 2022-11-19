@@ -2,9 +2,7 @@
 
 ### About this site
 
-主要用来放一些 OI 相关的笔记类的东西。
-
-随记/游记都会放到 [Cnblogs](https://www.cnblogs.com/BTeqwq/) 上。
+主要用来放一些 OI 相关的笔记类的东西，随记也会放一些在这里。
 
 希望做的事情就是记录好自己学习过的算法，遇到的 Tricks。
 
@@ -100,6 +98,7 @@ CF 有三个号：black_trees, royo_sea, royo_black_treesea
 #### Seniors
 
 + zjk （永远的神 orz %%%）
++ yzh（SJTU 学长，是神 fstqwq）
 + sjx （佳爸！！！orz）
 + wkr, lsj, yyh （您们都好强啊）
 + hxy （为啥那么早就退啊）
@@ -125,7 +124,7 @@ CF 有三个号：black_trees, royo_sea, royo_black_treesea
 + CryFortheMoon
 + 45dino
 + meyi
-+ tjx/pxz
++ tjx/pxz/impuk
 + SyadouHayami
 + Demoe
 + ~~撅腚我威风~~
