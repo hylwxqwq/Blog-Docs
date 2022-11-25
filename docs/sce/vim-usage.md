@@ -1,6 +1,20 @@
 
 Practise more.
 
+考场 Vimrc:
+
+```vim
+set clipborad^=unnamed,unnamedplus
+color blue
+set backup nu mouse=a ts=4 sw=4 sts=4 ar ai acd guifont=Consolas:h12:cANSI
+
+inoremap [ []<Esc>i
+inoremap {<CR> {}<Esc>i<CR><ESC>O
+inoremap ( ()<Esc>i
+inoremap " ""<Esc>i
+inoremap ' ''<Esc>i
+```
+
 ## 编辑模式
 
 ### Normal Mode

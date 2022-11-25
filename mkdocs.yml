@@ -139,7 +139,7 @@ nav:
         # - 块状链表:
         # - 树分块:
         # - zkw 线段树:
-        # - 李超线段树:
+        - 李超线段树: algor/ds/hard/li-chao-tree.md
         # - 可撤销并查集:
         # - 线段树分治:
         # - SegmentTreeBeats(区间最值操作，区间历史最值):
@@ -244,6 +244,7 @@ nav:
       - 线段树的扩展运用: rec/interesting/segtree-tricks.md
       - 答案上界特别小的一类问题: rec/interesting/small-upper-bound.md
       - 关于组合数学和计数的一些小问题: rec/interesting/comb-problem.md
+      - NOIP2022 考前思维打开口胡合集: rec/interesting/before-noip2022.md
   - Solutions: 
     - sol/index.md
     - 部分模拟赛改错:
@@ -256,6 +257,7 @@ nav:
       - 20221023D组: sol/mock/221023D.md
       - 20221025C组: sol/mock/221025C.md
       - 20221027C组: sol/mock/221027C.md
+      - 20221122C组: sol/mock/221122C.md
       - 模拟赛赛后总结:
         - 20220525C组: sol/mock/sum/220525C.md
         - 20220603C组(22/08/30 VP): sol/mock/sum/220603C.md
