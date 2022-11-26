@@ -4,9 +4,11 @@ Practise more.
 考场 Vimrc:
 
 ```vim
-set clipborad^=unnamed,unnamedplus
 color blue
-set backup nu mouse=a ts=4 sw=4 sts=4 ar ai acd guifont=Consolas:h12:cANSI
+set backspace=indent,eol,start
+set clipborad^=unnamed,unnamedplus
+set backup nu mouse=a ts=4 sw=4 sts=4 
+set ar ai acd guifont=Consolas:h12:cANSI
 
 inoremap [ []<Esc>i
 inoremap {<CR> {}<Esc>i<CR><ESC>O
