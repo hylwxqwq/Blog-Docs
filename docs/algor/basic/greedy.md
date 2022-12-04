@@ -778,7 +778,7 @@ Exc Arg 也可以放到树上：
 		// ref : https://blog.csdn.net/Leo_Nasir/article/details/81228924
 		```
 		
-进阶可以看看 ZJK 爷爷的 [Paper](../../sce/submit.pdf)。
+进阶可以看看 ZJK 爷爷的 [Paper](../../misc/submit.pdf)。
 
 ref: <https://www.cnblogs.com/Gavin_Liu/archive/2011/04/10/2011108.html>
 

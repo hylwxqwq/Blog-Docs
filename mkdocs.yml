@@ -1,10 +1,11 @@
 site_name: black_trees' blog
 site_author: black_trees
 site_url: https://hylwxqwq.github.io
-copyright: 'Copyright &copy; 2022 @black_trees'
+copyright: 'Copyright &copy; 2022 @black_trees || 未经许可，严禁转载'
 
 repo_name: 'hylwxqwq/hylwxqwq.github.io'
 repo_url: 'https://github.com/hylwxqwq/hylwxqwq.github.io'
+edit_uri: 'https://github.com/hylwxqwq/Blog-Docs/tree/master/docs'
 
 theme:
   name: 'material'
@@ -26,12 +27,26 @@ theme:
     - search.suggest
     - search.highlight
   font:
-    text: PT Serif
+    text: Source Serif Pro
     code: Consolas
   palette:
-    - primary: deep purple
-    - accent: indigo
-    # - scheme: slate
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to dark mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to system sytle 
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
 
 extra:
   social:
@@ -239,6 +254,7 @@ nav:
       - 2022年3月练习记录:  rec/tricks-for-2022-03.md
       - 2022年4月练习记录:  rec/tricks-for-2022-04.md
       - 2022年5月练习记录:  rec/tricks-for-2022-05.md
+      - Vjudge 线段树小专题: rec/segtree-practice.md
     - 一些有意思的小专题:
       - Atcoder dp edu contest: rec/dp-edu.md
       - 线段树的扩展运用: rec/interesting/segtree-tricks.md
@@ -247,7 +263,7 @@ nav:
       - NOIP2022 考前思维打开口胡合集: rec/interesting/before-noip2022.md
   - Solutions: 
     - sol/index.md
-    - 部分模拟赛改错:
+    - 模拟赛改错:
       - 20220413B组: sol/mock/220413B.md
       - 20220429C组: sol/mock/220429C.md
       - 20220511C组: sol/mock/220511C.md
@@ -258,7 +274,7 @@ nav:
       - 20221025C组: sol/mock/221025C.md
       - 20221027C组: sol/mock/221027C.md
       - 20221122C组: sol/mock/221122C.md
-      - 模拟赛赛后总结:
+      - 赛后总结:
         - 20220525C组: sol/mock/sum/220525C.md
         - 20220603C组(22/08/30 VP): sol/mock/sum/220603C.md
     - 解题报告:
@@ -270,23 +286,28 @@ nav:
       - CF1651E: sol/pro/cf1651e.md
       - UOJ105: sol/pro/uoj105.md
   - Misc:
-    - sce/index.md
+    - misc/index.md
     - OI 相关知识:
-      - 初赛知识复习: sce/menu.md
-      - OI 常用 Vim 命令: sce/vim-usage.md
+      - 初赛知识复习: misc/menu.md
+      - OI 常用 Vim 命令: misc/vim-usage.md
     - OI 游记:
-      # - CSP2020: sce/CSP2020.md
-      # - CSP2021: sce/CSP2021.md
-      - CSP2022: sce/CSP2022.md
-      - NOIP2022: sce/NOIP2022.md
-    - 鲜花: sce/flower.md
-  - Waifu:
-    - waifu.md
+      # - CSP2020: misc/CSP2020.md
+      # - CSP2021: misc/CSP2021.md
+      - CSP2022: misc/CSP2022.md
+      - NOIP2022: misc/NOIP2022.md
+    - 偶尔写一写的随记:
+      - 鲜花: misc/flower.md
+      - A Dream: misc/waifu.md
 
 extra_javascript:
-  # - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/mathjax/3.2.0/es5/tex-chtml.min.js
+extra_css:
+  - stylesheets/extra.css
+
+# plugins:
+  # - meta:
+      # meta_file: '**/.meta.yml'
 
 markdown_extensions:
   - admonition

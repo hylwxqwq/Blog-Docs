@@ -66,90 +66,90 @@
 	第 13 集：4 ~ 9 集中的番外，还没做完就起床了。	
 
 ??? note "Click to review"
-	![wife](img/wife.png)
+	![wife](../img/wife.png)
 	
-	![wife_helpless](img/wife_helpless.png)
+	![wife_helpless](../img/wife_helpless.png)
 	
-	![wife-angry](img/wife-angry.png)
+	![wife-angry](../img/wife-angry.png)
 	
-	![wife-angry2](img/wife-angry2.png)
+	![wife-angry2](../img/wife-angry2.png)
 	
-	![wife-angry-better](img/wife-angry-better.png)
+	![wife-angry-better](../img/wife-angry-better.png)
 	
-	![wife-angry-much-better](img/wife-angry-much-better.png)
+	![wife-angry-much-better](../img/wife-angry-much-better.png)
 	
-	![wife-attention](img/wife-attention.png)
+	![wife-attention](../img/wife-attention.png)
 	
-	![wife-awake](img/wife-awake.png)
+	![wife-awake](../img/wife-awake.png)
 	
-	![wife-best](img/wife-best.png)
+	![wife-best](../img/wife-best.png)
 	
-	![wife-best-no-hands](img/wife-best-no-hands.png)
+	![wife-best-no-hands](../img/wife-best-no-hands.png)
 	
-	![wife-cat](img/wife-cat.png)
+	![wife-cat](../img/wife-cat.png)
 	
-	![wife-confidence-show-love](img/wife-confidence-show-love.png)
+	![wife-confidence-show-love](../img/wife-confidence-show-love.png)
 	
-	![wife-curious](img/wife-curious.png)
+	![wife-curious](../img/wife-curious.png)
 	
-	![wife-dreaming](img/wife-dreaming.png)
+	![wife-dreaming](../img/wife-dreaming.png)
 	
-	![wife-embarrassed](img/wife-embarrassed.png)
+	![wife-embarrassed](../img/wife-embarrassed.png)
 	
-	![wife-fall-in-love](img/wife-fall-in-love.png)
+	![wife-fall-in-love](../img/wife-fall-in-love.png)
 	
-	![wife-fall-in-love-2](img/wife-fall-in-love-2.png)
+	![wife-fall-in-love-2](../img/wife-fall-in-love-2.png)
 	
-	![wife-fall-in-love-doge](img/wife-fall-in-love-doge.png)
+	![wife-fall-in-love-doge](../img/wife-fall-in-love-doge.png)
 	
-	![wife-handsome](img/wife-handsome.png)
+	![wife-handsome](../img/wife-handsome.png)
 	
-	![wife-happy](img/wife-happy.png)
+	![wife-happy](../img/wife-happy.png)
 	
-	![wife-happy3](img/wife-happy3.png)
+	![wife-happy3](../img/wife-happy3.png)
 	
-	![wife-happy-dream](img/wife-happy-dream.png)
+	![wife-happy-dream](../img/wife-happy-dream.png)
 	
-	![wife-injured](img/wife-injured.png)
+	![wife-injured](../img/wife-injured.png)
 	
-	![wife-injured2](img/wife-injured2.png)
+	![wife-injured2](../img/wife-injured2.png)
 	
-	![wife-kiss](img/wife-kiss.png)
+	![wife-kiss](../img/wife-kiss.png)
 	
-	![wife-kiss2](img/wife-kiss2.png)
+	![wife-kiss2](../img/wife-kiss2.png)
 	
-	![wife-kiss3](img/wife-kiss3.png)
+	![wife-kiss3](../img/wife-kiss3.png)
 	
-	![wife-lick](img/wife-lick.png)
+	![wife-lick](../img/wife-lick.png)
 	
-	![wife-little-angry](img/wife-little-angry.png)
+	![wife-little-angry](../img/wife-little-angry.png)
 	
-	![wife-love-hello](img/wife-love-hello.png)
+	![wife-love-hello](../img/wife-love-hello.png)
 	
-	![wife-normal](img/wife-normal.png)
+	![wife-normal](../img/wife-normal.png)
 	
-	![wife-show-love-embrassed](img/wife-show-love-embrassed.png)
+	![wife-show-love-embrassed](../img/wife-show-love-embrassed.png)
 	
-	![wife-sleep](img/wife-sleep.png)
+	![wife-sleep](../img/wife-sleep.png)
 	
-	![wife-sleep2](img/wife-sleep2.png)
+	![wife-sleep2](../img/wife-sleep2.png)
 	
-	![wife-smile](img/wife-smile.png)
+	![wife-smile](../img/wife-smile.png)
 	
-	![wife-smile2](img/wife-smile2.png)
+	![wife-smile2](../img/wife-smile2.png)
 	
-	![wife-star-eye](img/wife-star-eye.png)
+	![wife-star-eye](../img/wife-star-eye.png)
 	
-	![wife-tricky](img/wife-tricky.png)
+	![wife-tricky](../img/wife-tricky.png)
 	
-	![wife-tricky2](img/wife-tricky2.png)
+	![wife-tricky2](../img/wife-tricky2.png)
 	
-	![wife-unsatisfied](img/wife-unsatisfied.png)
+	![wife-unsatisfied](../img/wife-unsatisfied.png)
 	
-	![wife-unwilling](img/wife-unwilling.png)
+	![wife-unwilling](../img/wife-unwilling.png)
 	
-	![wife-worried](img/wife-worried.png)
+	![wife-worried](../img/wife-worried.png)
 	
-	![wife-wretched](img/wife-wretched.png)
+	![wife-wretched](../img/wife-wretched.png)
 	
-	![wife-wretched2](img/wife-wretched2.png)
+	![wife-wretched2](../img/wife-wretched2.png)
