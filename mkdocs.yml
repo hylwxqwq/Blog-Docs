@@ -10,8 +10,8 @@ edit_uri: 'https://github.com/hylwxqwq/Blog-Docs/tree/master/docs'
 theme:
   name: 'material'
   custom_dir: overrides
-  favicon: img/wife-best.png
-  logo: img/wife-best.png
+  favicon: img/logo.png
+  logo: img/logo.png
   language: 'zh'
   features:
     # - navigation.instant # 点击内部链接时，不用全部刷新页面 # 会导致 数学公式第一次进入时加载失败
