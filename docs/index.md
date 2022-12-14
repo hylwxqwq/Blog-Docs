@@ -71,7 +71,7 @@ CF 有三个号：black_trees, royo_sea, royo_black_treesea
 - [GOODTEK - EBIMAYO](https://osu.ppy.sh/beatmapsets/1866379#mania/3839074)
 - [514 - Maritumix](https://osu.ppy.sh/beatmapsets/1879439#mania/3869199)
 
-音游的话已经 AFK 了，以后估计也不想打了。
+Arcaea 萌新，不会玩 Arcaea，4k 也很菜，2dan 刚刚过。
 
 ----
 
