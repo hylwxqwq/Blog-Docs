@@ -248,4 +248,4 @@ debug 过程全部录了屏的，在 bilibili 上面：
 
 - [第一部分，帧率很低，比特率很低。](https://www.bilibili.com/video/BV1JA411X7Hk/)
 - [第二部分，帧率很高，比特率很低。](https://www.bilibili.com/video/BV1qg411t7nf/)
-- [第三部分，帧率很高，比特率还行。](https://www.bilibili.com/video/BV1B84y1478z/)
+- [第三部分，帧率很高，比特率还行。](https://www.bilibili.com/video/BV1uR4y1r79S/)
