@@ -142,7 +142,7 @@ nav:
         - 单调栈: algor/ds/easy/monotonous-stack.md
         - 单调队列: algor/ds/easy/monotonous-queue.md
       - 普通数据结构:
-        # - 并查集:
+        - 并查集: algor/ds/normal/dsu.md
         - 线段树: algor/ds/normal/segtree.md
         - 线段树二分: algor/ds/normal/binary-search-on-segtree.md
         - 树状数组: algor/ds/normal/fenwick.md
