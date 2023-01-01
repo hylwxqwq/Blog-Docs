@@ -297,7 +297,15 @@ nav:
       - CSP2022: misc/CSP2022.md
       - NOIP2022: misc/NOIP2022.md
     - 偶尔写一写的随记:
-      - 闲话茶屋: misc/flower.md
+      - 闲话茶屋: 
+        - Index: misc/flower.md
+        - 11.21.22 - Edit: misc/flower/edit.md
+        - 11.22.22 - Phenomena: misc/flower/phenomena.md
+        - 11.26.22 - OI: misc/flower/oi.md
+        - 12.05.22 - Memories: misc/flower/memories.md
+        - 12.14.22 - Covid: misc/flower/covid.md
+        - 12.24.22 - Remake: misc/flower/remake.md
+        - 12.31.22 - Festival: misc/flower/festival.md 
       - A Dream: misc/waifu.md
 
 extra_javascript:
