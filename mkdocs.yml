@@ -308,6 +308,7 @@ nav:
         - 12.31.22 - Festival: misc/flower/festival.md 
         - 01.07.23 - Admission: misc/flower/admission.md
       - A Dream: misc/waifu.md
+      - 近期推歌: misc/music.md
 
 extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
